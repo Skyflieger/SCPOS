@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<input type="image" class="folder" src="~/icons/Database.png" id="add" alt=""/>
+
+<div id="main"></div>
+
+@section Scripts{
+    <script>
+    var index = 1;
+    
+   jQuery(document).ready(function () {
+        jQuery('#add').click(function () {
+            {
+                var _url = '@Url.Action("GetWindow", "Home")';
+                jQuery.ajax({
+                    type: "GET",
+                    url: _url,
+                    data: { 
+                        id: index,
+                        title: "yeet"
+                    },
+                    success: function (result) {
+                        index += 1;
+                        jQuery("#main").append(result);
+                    },
+                });
+            }
+        });
+    });
+    </script>
+}
