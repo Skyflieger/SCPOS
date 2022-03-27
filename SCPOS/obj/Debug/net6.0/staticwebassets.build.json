@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OBvBZqi/RbJObOxMEB4CuU9FqGQ1thaAhfVkNfTjSXE=",
+  "Hash": "IAhgEhK4vobhQxr/TEUOmW73V4hHpPdKXtn8F3xWRq0=",
   "Source": "SCPOS",
   "BasePath": "_content/SCPOS",
   "Mode": "Default",
@@ -151,6 +151,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\icons\\Database.png"
+    },
+    {
+      "Identity": "C:\\Users\\Alex\\RiderProjects\\SCP\\SCPOS\\wwwroot\\index.html",
+      "SourceId": "SCPOS",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Alex\\RiderProjects\\SCP\\SCPOS\\wwwroot\\",
+      "BasePath": "_content/SCPOS",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
       "Identity": "C:\\Users\\Alex\\RiderProjects\\SCP\\SCPOS\\wwwroot\\js\\site.js",
