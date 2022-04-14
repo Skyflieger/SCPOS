@@ -1,4 +1,21 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿let index = 0;
 
-// Write your JavaScript code.
+function addWindow(id, url, title, type){
+    jQuery(id).click(function () {
+        {
+            jQuery.ajax({
+                type: "GET",
+                url: url,
+                data: {
+                    id: index,
+                    title: title,
+                    type: type
+                },
+                success: function (result) {
+                    index += 1;
+                    jQuery("#main").append(result);
+                },
+            });
+        }
+    });
+}

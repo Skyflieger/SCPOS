@@ -7,13 +7,13 @@ using SCPOS.Models;
 namespace SCPOS.Controllers; 
 
 public class WindowViewComponent : ViewComponent {
-    public async Task<IViewComponentResult> InvokeAsync(int id, string title) {
+    public async Task<IViewComponentResult> InvokeAsync(int id, string title, string type) {
         
         
         WindowViewModel model = new WindowViewModel {
             Id = id,
             Title = title,
-            ContentViewComponent = "Database"
+            ContentViewComponent = type
         };
         return View(model);
     }

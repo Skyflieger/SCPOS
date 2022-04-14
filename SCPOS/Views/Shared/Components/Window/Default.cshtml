@@ -1,40 +1,23 @@
 ﻿@using System.Web
 @model WindowViewModel
-
-
-
+**
 <div id="window@(Model.Id)" class="window">
-    <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
     <div id="window@(Model.Id)header" class="title-bar" style="min-width: 300px; max-width: 100%">
         <div id="title" class="title-bar-text">@Model.Title</div>
         <div class="title-bar-controls">
-            <button aria-label="Minimize"></button>
-            <button aria-label="Maximize"></button>
-            <button aria-label="Close" onclick="remove(@Model.Id)"></button>
-          </div>
+            <span class="close-button" onclick="remove(@Model.Id)">&times;</span>
+        </div>
     </div>
-    <div class="window-body" id="window-content-@(Model.Id)">
+    <div class="window-content" id="window-content-@(Model.Id)">
         
     </div>
 </div>
 
-<link rel="stylesheet" href="~/css/window.css">
 <script src="~/js/window.js"></script>
 <script>
     dragElement(document.getElementById("window@(Model.Id)"));
     jQuery(document).ready(function () {
-        let _url = '@Url.Action(Model.ContentViewComponent, "WindowComponent")';
-        let jsonData = {
-            "windowId": @Model.Id,
-            @Html.Raw(Model.ViewData)
-        }
-        jQuery.ajax({
-            type: "GET",
-            url: _url,
-            data: jsonData,
-            success: function (result) {
-                jQuery("#window-content-@(Model.Id)").append(result);
-            },
-        });
+        changeWindowContent('@Url.Action(Model.ContentViewComponent, "WindowComponent")', @Model.Id, @Html.Raw(Model.ViewData))
+        
     });
 </script>

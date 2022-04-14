@@ -1,10 +1,30 @@
+using System.Dynamic;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using MySqlConnector;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using SCPOS.Services;
+using SqlKata;
+using SqlKata.Compilers;
+using SqlKata.Execution;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IEntryService, EntryService>();
+builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<IUserClaimProvider, UserClaimProvider>();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(x => x.LoginPath = "/account/login");
+
+MySqlConnection connection = new MySqlConnection(
+    builder.Configuration.GetConnectionString("myDb1")
+);
+
+QueryFactory db = new(connection, new MySqlCompiler());
+
+builder.Services.AddSingleton(db);
 
 var app = builder.Build();
 

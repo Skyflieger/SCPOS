@@ -1,0 +1,19 @@
+﻿@model SettingsViewModel
+
+<div>
+    <h1>Settings</h1>
+    <input type="button" id="saveDatabaseButton" value="save"/>
+</div>
+
+<script>
+    jQuery('#saveDatabaseButton').click(function () {
+        {
+            jQuery.ajax({
+                type: "POST",
+                url: '@Url.Action("SaveData", "Settings")',
+                data: {
+                }
+            });
+        }
+    });
+</script>

@@ -12,4 +12,24 @@ public class WindowComponentController : Controller {
     {
         return ViewComponent("Entry", new {id = id});
     }
+    
+    public IActionResult Settings(int windowId)
+    {
+        return ViewComponent("Settings", new{ windowId = windowId});
+    }
+    
+    public IActionResult Accounts(int windowId)
+    {
+        return ViewComponent("Accounts", new{ windowId = windowId});
+    }
+    public IActionResult EditRuleBook(int id, int windowId) {
+        if (id == 0)
+            id = 1;
+        return ViewComponent("EditRuleBook", new{ Id = id, windowId = windowId});
+    }
+    public IActionResult RuleBook(int id, int windowId) {
+        if (id == 0)
+            id = 1;
+        return ViewComponent("RuleBook", new{ Id = id, windowId = windowId});
+    }
 }

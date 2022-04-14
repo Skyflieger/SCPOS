@@ -1,23 +1,13 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
-}
-
 .folder {
   width: 50px;
   height: 50px;
+}
+
+.navbar{
+  border-bottom: solid;
+}
+
+body{
+  background-color: lightgray;
+  font-family: 'Courier New', monospace;
 }
