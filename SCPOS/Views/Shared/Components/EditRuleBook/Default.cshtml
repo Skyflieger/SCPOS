@@ -1,0 +1,65 @@
+﻿@model RuleBookViewModel
+
+<link rel="stylesheet" href="~/css/htmlEditor.css"/>
+
+
+
+<input type="number" id="page" value="@Model.currentPage" min="1" max="@Model.maxPage"/>
+
+<div class="container grid">
+    <h3>HTML</h3>
+    <textarea id="html" class="edit">@Model.html</textarea>
+</div>
+
+<div class="output grid">
+    <iframe></iframe>
+</div>
+
+<input type="button" id="saveRuleBook" value="save"/>
+<input type="button" id="addPage" value="add"/>
+
+<script>
+
+(function() {
+   jQuery(".grid").height(jQuery(window).height());
+
+   var contents = jQuery("iframe").contents(),
+       body = contents.find("body")
+
+   jQuery("textarea.edit").keyup(function() {
+      var $this = jQuery(this);
+      if ($this.attr("id") === "html") {
+         body.html($this.val());
+      }
+   });
+})();
+
+jQuery('#saveRuleBook').click(function () {
+    {
+        jQuery.ajax({
+            type: "POST",
+            url: '@Url.Action("EditRuleBook", "EditRuleBook")',
+            data: {
+                html: document.getElementById("html").value,
+                id: '@Model.currentPage'
+            }
+        });
+    }
+});
+
+jQuery('#addPage').click(function () {
+    {
+        jQuery.ajax({
+            type: "POST",
+            url: '@Url.Action("AddPage", "EditRuleBook")'
+        });
+    }
+});
+
+jQuery('#page').change(function (){
+    let data = {
+        "id": document.getElementById("page").value
+    }
+    changeWindowContent('@Url.Action("EditRuleBook", "WindowComponent")', '@Model.windowId', data)    
+})
+</script>

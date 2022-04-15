@@ -1,0 +1,13 @@
+﻿@model RuleBookViewModel
+<input type="number" id="page" value="@Model.currentPage" min="1" max="@Model.maxPage"/>
+
+<div>@Html.Raw(Model.html)</div>
+
+<script>
+    jQuery('#page').change(function (){
+        let data = {
+            "id": document.getElementById("page").value
+        }
+        changeWindowContent('@Url.Action("RuleBook", "WindowComponent")', '@Model.windowId', data)
+    })
+</script>

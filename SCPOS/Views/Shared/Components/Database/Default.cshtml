@@ -1,0 +1,61 @@
+﻿@model DatabaseViewModel
+
+@{
+    int max = 6999;
+}
+    <link rel="stylesheet" href="~/css/database.css"/>
+
+@for (int i = 0; i < 10; i++) {
+    int thousand = i * 1000;
+    <ul id="myUL">
+        <li><span class="caret">@(thousand) to @(thousand + 999)</span>
+            <ul class="nested">
+                @for (int j = 0; j < 10; j++) {
+                    int hundred = j * 100;
+                    <li><span class="caret">@(thousand + hundred) to @(thousand + hundred + 99)</span>
+                        <ul class="nested">
+                            @for (int x = 0; x < 10; x++) {
+                                int ten = x * 10;
+                                <li><span class="caret">@(thousand + hundred + ten) to @(thousand + hundred + ten + 9)</span>
+                                    <ul class="nested">
+                                        @for (int y = 0; y < 10; y++) {
+                                            int number = thousand + hundred + ten + y;
+                                            <li onclick="openEntry(@number)"> SCP-@number</li>
+                                        }
+                                    </ul>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                }
+            </ul>
+        </li>
+    </ul>
+}
+
+<script>
+var toggler = document.getElementsByClassName("caret");
+var i;
+
+for (i = 0; i < toggler.length; i++) {
+  toggler[i].addEventListener("click", function() {
+    this.parentElement.querySelector(".nested").classList.toggle("active");
+    this.classList.toggle("caret-down");
+  });
+}
+
+let _url@(Model.WindowId) = '@Url.Action("Entry", "WindowComponent")';
+function openEntry(number) {
+    jQuery.ajax({
+        type: "GET",
+        url: _url@(Model.WindowId),
+        data: { 
+              id: number
+          },
+        success: function (result) {
+            jQuery("#window-content-@(Model.WindowId)").html(result);
+        },
+    });
+}
+    
+</script>

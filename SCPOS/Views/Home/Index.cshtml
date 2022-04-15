@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "SCPOS";
+}
+
+<header>
+    <div class="navbar">
+        <img src="scp_logo.svg" alt="scp" width="30"/>
+    </div>
+</header>
+
+<input type="image" class="folder" src="~/icons/iconmonstr-database-1.svg" id="database" alt=""/>
+<input type="image" class="folder" src="~/icons/iconmonstr-gear-1.svg" id="settings" alt=""/>
+<input type="image" class="folder" src="~/icons/iconmonstr-user-29.svg" id="accounts" alt=""/>
+<input type="image" class="folder" src="~/icons/iconmonstr-book-18.svg" id="editRuleBook" alt=""/>
+<input type="image" class="folder" src="~/icons/iconmonstr-book-19.svg" id="ruleBook" alt=""/>
+
+<div id="main"></div>
+
+@section Scripts{
+    <script>
+        jQuery(document).ready(function () {
+            addWindow('#database', '@Url.Action("GetWindow", "Home")', "Database", "Database");
+            addWindow('#settings', '@Url.Action("GetWindow", "Home")', "Settings", "Settings");
+            addWindow('#accounts', '@Url.Action("GetWindow", "Home")', "Accounts", "Accounts");
+            addWindow('#editRuleBook', '@Url.Action("GetWindow", "Home")', "Edit", "EditRuleBook");
+            addWindow('#ruleBook', '@Url.Action("GetWindow", "Home")', "Rulebook", "RuleBook");
+        });
+    </script>
+}

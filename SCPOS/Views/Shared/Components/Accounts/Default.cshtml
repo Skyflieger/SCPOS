@@ -1,0 +1,32 @@
+﻿@model AccountsViewModel
+
+<div>
+    <h2>Accounts</h2>
+    <ul>
+    @foreach (Account account in Model.Accounts) {
+        <li>@account.Username</li>
+    }
+    </ul>
+    <h2>Add Account</h2>
+    <div>Username <input type="text" id="username"/></div>
+    <div>Password <input type="text" id="password"/></div>
+    <input type="button" id="saveAccountButton" value="Add Account"/>
+</div>
+
+<script>
+    jQuery('#saveAccountButton').click(function () {
+        {
+            jQuery.ajax({
+                type: "POST",
+                url: '@Url.Action("AddAccount", "Accounts")',
+                data: {
+                    username: document.getElementById("username").value,
+                    password: document.getElementById("password").value
+                },
+                success: function(){      
+                    changeWindowContent('@Url.Action("Accounts", "WindowComponent")', @Model.WindowId);
+                    }
+            });
+        }
+    });
+</script>
