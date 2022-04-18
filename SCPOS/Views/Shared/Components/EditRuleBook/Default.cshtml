@@ -2,34 +2,24 @@
 
 <link rel="stylesheet" href="~/css/htmlEditor.css"/>
 
-
+<div class="main_content">
+    <textarea id="html" class="html">@Model.html</textarea>
+    <div class="output" id="output"></div>
+</div>
 
 <input type="number" id="page" value="@Model.currentPage" min="1" max="@Model.maxPage"/>
-
-<div class="container grid">
-    <h3>HTML</h3>
-    <textarea id="html" class="edit">@Model.html</textarea>
-</div>
-
-<div class="output grid">
-    <iframe></iframe>
-</div>
-
 <input type="button" id="saveRuleBook" value="save"/>
 <input type="button" id="addPage" value="add"/>
 
 <script>
 
+jQuery("#output").html(jQuery("#html").val());
+
 (function() {
-   jQuery(".grid").height(jQuery(window).height());
-
-   var contents = jQuery("iframe").contents(),
-       body = contents.find("body")
-
-   jQuery("textarea.edit").keyup(function() {
+   jQuery("textarea.html").keyup(function() {
       var $this = jQuery(this);
       if ($this.attr("id") === "html") {
-         body.html($this.val());
+         jQuery("#output").html($this.val());
       }
    });
 })();

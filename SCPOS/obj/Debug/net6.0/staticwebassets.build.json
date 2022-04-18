@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Cn1g1xc+bmqCGx8upDCm+DjDGwlhAfH93SRYk6Sm34Q=",
+  "Hash": "Hi/XNmBjZbkByZfM6mYTLCja7163YZB39Qc9VqtT+jA=",
   "Source": "SCPOS",
   "BasePath": "_content/SCPOS",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\login.css"
+    },
+    {
+      "Identity": "C:\\Users\\Alex\\RiderProjects\\SCP\\SCPOS\\wwwroot\\css\\rulebook.css",
+      "SourceId": "SCPOS",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Alex\\RiderProjects\\SCP\\SCPOS\\wwwroot\\",
+      "BasePath": "_content/SCPOS",
+      "RelativePath": "css/rulebook.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\rulebook.css"
     },
     {
       "Identity": "C:\\Users\\Alex\\RiderProjects\\SCP\\SCPOS\\wwwroot\\css\\site.css",

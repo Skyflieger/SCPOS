@@ -14,7 +14,7 @@ public class EditRuleBookController : Controller {
     
     [HttpPost]
     public Result EditRuleBook(string html, int id) {
-        _queryFactory.Query("rulebook").Where(new{Id = id}).Update(new {
+        _queryFactory.Query("Rulebook").Where(new{Id = id}).Update(new {
             html = html
         });
         
@@ -23,7 +23,7 @@ public class EditRuleBookController : Controller {
     
     [HttpPost]
     public Result AddPage() {
-        _queryFactory.Query("rulebook").Insert(new { html = "Page"});
+        _queryFactory.Query("Rulebook").Insert(new { html = "Page"});
 
         return Result.Ok();
     }

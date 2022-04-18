@@ -8,6 +8,21 @@
 }
 
 body{
-  background-color: lightgray;
+  background-color: #dadada;
   font-family: 'Courier New', monospace;
+}
+
+div.item {
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+  width: 120px;
+  cursor: pointer;
+}
+img {
+  width: 100px;
+  height: 100px;
+}
+.caption {
+  display: block;
 }

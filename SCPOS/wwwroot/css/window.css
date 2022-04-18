@@ -4,17 +4,18 @@
 }
 
 .window-content{
-    border: solid;
-    border-top: transparent;
-    max-height: 500px;
-    max-width: 1000px;
+    border: solid #777777;
+    border-top-color: transparent;
     overflow-y: auto;
-    background-color: white;
+    background-color: #cdcdcd;
+    max-height: 750px;
+    max-width: 100%;
 }
 
 .title-bar{
     height: 25px;
-    border: solid;
+    border: solid #777777;
+    background: #a7a7a7;
 }
 
 .close-button {

@@ -9,8 +9,8 @@ public class EntryService : IEntryService{
         string idString = id.ToString("000");
         string url = "https://scp-wiki.wikidot.com/scp-" + idString;
         
-        var data = new WebClient().DownloadString(url);
-        var doc = new HtmlDocument();
+        string data = new WebClient().DownloadString(url);
+        HtmlDocument doc = new HtmlDocument();
         doc.LoadHtml(data);
 
         List<HtmlNode> nodesToRemove = new List<HtmlNode>();

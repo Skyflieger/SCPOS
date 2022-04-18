@@ -30,6 +30,6 @@ public class WindowComponentController : Controller {
     public IActionResult RuleBook(int id, int windowId) {
         if (id == 0)
             id = 1;
-        return ViewComponent("RuleBook", new{ Id = id, windowId = windowId});
+        return ViewComponent("RuleBook", new{ id = id, windowId = windowId});
     }
 }
